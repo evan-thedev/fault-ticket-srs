@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fault Ticket</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Fault Ticket</h1>
+      <p>
+        Single-user lab / UAT defect log. Data stays in this browser.
+        Spec: <a href="../docs/SRS.md">docs/SRS.md</a>
+      </p>
+    </header>
+
+    <div class="grid">
+      <section class="panel" aria-labelledby="create-heading">
+        <h2 id="create-heading">New ticket</h2>
+        <!-- UI-01, NFR-04 -->
+        <form id="ticket-form" novalidate>
+          <label for="title">Title</label>
+          <input id="title" name="title" maxlength="80" required autocomplete="off" />
+
+          <label for="station">Station</label>
+          <input id="station" name="station" maxlength="40" required autocomplete="off" />
+
+          <label for="severity">Severity</label>
+          <select id="severity" name="severity">
+            <option value="low">low</option>
+            <option value="med" selected>med</option>
+            <option value="high">high</option>
+          </select>
+
+          <label for="notes">Notes</label>
+          <textarea id="notes" name="notes" maxlength="500"></textarea>
+
+          <p class="errors" id="form-errors" role="alert"></p>
+          <button type="submit">Add ticket</button>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="list-heading">
+        <h2 id="list-heading">Tickets</h2>
+        <div class="toolbar">
+          <div class="filters">
+            <!-- UI-03 -->
+            <label for="filter-severity">Severity</label>
+            <select id="filter-severity">
+              <option value="all">all</option>
+              <option value="low">low</option>
+              <option value="med">med</option>
+              <option value="high">high</option>
+            </select>
+            <label for="filter-status">Status</label>
+            <select id="filter-status">
+              <option value="all">all</option>
+              <option value="open">open</option>
+              <option value="resolved">resolved</option>
+            </select>
+            <span id="list-meta"></span>
+          </div>
+          <div class="row-actions">
+            <button type="button" class="secondary" id="export-btn">Export CSV</button>
+            <button type="button" class="danger" id="clear-btn">Clear all</button>
+          </div>
+        </div>
+        <div id="list-root"></div>
+      </section>
+    </div>
+
+    <footer>
+      Fault Ticket v1.0 — implements the SRS in this repo. MIT license.
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
