@@ -20,7 +20,7 @@ Reset notes:
 | TC-09 | SI-01, FR-17, FR-18 | Create a ticket. Reload the page. | Same tickets return. Storage key is `fault-ticket.v1`. | |
 | TC-10 | FR-19 | Fresh profile, first load. | Three seeds: low, med, high; mixed status (two open, one resolved). | |
 | TC-11 | FR-21–FR-23 | Filter to `high`. Export CSV. Open the file. | Filename `fault-tickets.csv`. Header matches SRS. Only filtered rows. A title with a comma is quoted. | |
-| TC-12 | FR-20, FR-24, FR-25 | Clear all → Cancel. Then Clear all → OK. Reload. | Cancel leaves data. OK empties list. Reload stays empty (no re-seed). | |
+| TC-12 | FR-20, FR-24, FR-25 | Clear all → Cancel. Then Clear all → OK. Reload. | Cancel leaves data. OK empties list and shows “No tickets yet.” Reload stays empty (no re-seed). | |
 | TC-13 | SI-02, ER-03 | In DevTools set `fault-ticket.v1` to `not-json`. Reload. | Page still renders. List empty. Console has no uncaught exception. | |
 | TC-14 | UI-06, NFR-03, NFR-04, NFR-05 | Narrow the window to ~360px. Tab through controls. | Form stacks above list. Every control is labeled and reachable. Text stays readable. | |
 | TC-15 | NFR-01 | In console use `window.__seedMany(200)`. Filter and resolve one. | UI stays responsive; no freeze. | |
