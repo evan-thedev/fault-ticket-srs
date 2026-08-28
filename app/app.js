@@ -156,7 +156,8 @@ function renderList() {
   els.listMeta.textContent = `${shown.length} shown / ${tickets.length} total`; // FR-16
 
   if (shown.length === 0) {
-    els.listRoot.innerHTML = `<p class="empty">No tickets match the filters.</p>`;
+    const msg = tickets.length === 0 ? "No tickets yet." : "No tickets match the filters.";
+    els.listRoot.innerHTML = `<p class="empty">${msg}</p>`;
     return;
   }
 
